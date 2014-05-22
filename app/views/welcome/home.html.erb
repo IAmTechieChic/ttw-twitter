@@ -1,0 +1,26 @@
+<h1>Tweets</h1>
+<%= link_to "Create New Tweet", tweets_path %><br><br>
+
+ <% if user_signed_in? %>
+
+ <p>Welcome <%= current_user.email %></p>
+
+  <%=  current_user.name %>
+
+<% @tweet.each do |t| %>
+ <%= t.created_at %><br>
+ <%= t.message %><br>
+<%end%>
+
+  <%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %>
+
+  <% else %>
+
+  <%= link_to "Sign in",new_user_session_path %>
+
+  <% end %>
+
+
+
+
+
